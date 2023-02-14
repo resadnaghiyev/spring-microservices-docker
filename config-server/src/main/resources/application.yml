@@ -1,0 +1,28 @@
+server.port: 8888
+
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/resadnaghiyev/config-server
+          clone-on-start: true
+          default-label: master
+  security:
+    user:
+      name: root
+      password: password
+  sleuth:
+    integration:
+      enabled: true
+    sampler:
+      probability: 1.0
+  zipkin:
+    base-url: http://localhost:9411
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka:password@localhost:8761/eureka
